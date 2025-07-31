@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ abstract.title }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="p-4">
+    <div class="container">
+        <a href="{{ url_for('index', q=query) }}" class="btn btn-secondary mb-3">← Back to Search</a>
+        <h2>{{ abstract.title }}</h2>
+        <p class="text-muted">{{ abstract.path }}</p>
+        
+        <h5>Full Abstract</h5>
+        <pre style="white-space: pre-wrap;">{{ abstract.text or abstract.content }}</pre>
+        
+        {% if summary %}
+        <div class="mt-4">
+            <h5>AI-Generated Summary</h5>
+            <div class="alert alert-info" role="alert">
+                {{ summary }}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
